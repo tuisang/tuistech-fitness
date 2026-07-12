@@ -2,6 +2,7 @@ import { PageHero, SectionLabel, PrimaryButton } from "@/components/ui";
 import { ebooks, equipment } from "@/lib/data";
 import { waLink } from "@/lib/config";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Shop | Tuistech Fitness",
@@ -29,31 +30,44 @@ export default function ShopPage() {
             {ebooks.map((e) => (
               <div
                 key={e.slug}
-                className="flex flex-col justify-between border-2 border-ink p-7"
+                className="flex flex-col justify-between border-2 border-ink"
               >
-                <div>
-                  <span className="text-mono-label text-xs text-steel">
-                    {e.format}
-                  </span>
-                  <h3 className="text-display mt-3 text-2xl leading-tight">
-                    {e.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ink/60">
-                    {e.description}
-                  </p>
-                </div>
-                <div className="mt-8 flex items-center justify-between border-t border-steel-line pt-5">
-                  <span className="text-mono-label text-sm text-green">
-                    {e.price}
-                  </span>
-                  <a
-                    href={e.gumroadUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-mono-label border-2 border-ink px-4 py-2.5 text-xs transition-colors hover:border-green hover:text-green"
-                  >
-                    Buy on Gumroad ↗
-                  </a>
+                {e.cover && (
+                  <div className="relative aspect-[3/4] w-full border-b-2 border-ink bg-paper-dim">
+                    <Image
+                      src={e.cover}
+                      alt={`${e.title} cover`}
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 768px) 50vw, 100vw"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-1 flex-col justify-between p-7">
+                  <div>
+                    <span className="text-mono-label text-xs text-steel">
+                      {e.format}
+                    </span>
+                    <h3 className="text-display mt-3 text-2xl leading-tight">
+                      {e.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-ink/60">
+                      {e.description}
+                    </p>
+                  </div>
+                  <div className="mt-8 flex items-center justify-between border-t border-steel-line pt-5">
+                    <span className="text-mono-label text-sm text-green">
+                      {e.price}
+                    </span>
+                    
+                      href={e.gumroadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-mono-label border-2 border-ink px-4 py-2.5 text-xs transition-colors hover:border-green hover:text-green"
+                    >
+                      Buy on Gumroad ↗
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
