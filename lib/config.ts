@@ -1,11 +1,11 @@
-// TODO: replace placeholders with real contact details before launch.
+﻿// TODO: add real Instagram/TikTok/YouTube handles here once you have them.
 export const siteConfig = {
-  whatsappNumber: "254700000000", // digits only, no +
+  whatsappNumber: "254726461196", // digits only, no +
   email: "fitness@tuistech.co.ke",
-  phone: "+254 700 000 000",
-  instagram: "https://instagram.com/tuistechfitness",
-  tiktok: "https://tiktok.com/@tuistechfitness",
-  youtube: "https://youtube.com/@tuistechfitness",
+  phone: "+254 726 461 196",
+  instagram: "",
+  tiktok: "",
+  youtube: "",
   bookingUrl: "", // e.g. a Calendly / cal.com link
 };
 
