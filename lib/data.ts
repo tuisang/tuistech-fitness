@@ -141,13 +141,13 @@ export const ebooks: Ebook[] = [
     gumroadUrl: "https://gumroad.com/l/strength-blueprint",
   },
   {
-    slug: "nairobi-fatloss-kitchen",
-    title: "The Nairobi Fat-Loss Kitchen",
-    price: "KES 1,200",
-    format: "PDF · 48 pages",
+    slug: "90-day-weight-loss-kit",
+    title: "90-Day Weight Loss Transformation Kit",
+    price: "$15",
+    format: "PDF · Instant download",
     description:
-      "Meal frameworks built from market produce and local staples, with portion guides, not fads.",
-    gumroadUrl: "https://gumroad.com/l/nairobi-fatloss-kitchen",
+      "A structured 90-day weight-loss program with step-by-step workouts, nutrition guidance, and printable trackers to stay consistent.",
+    gumroadUrl: "https://3593509157637.gumroad.com/l/phvdq",
   },
   {
     slug: "home-workout-toolkit",
