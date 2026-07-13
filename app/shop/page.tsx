@@ -1,4 +1,4 @@
-import { PageHero, SectionLabel, PrimaryButton } from "@/components/ui";
+﻿import { PageHero, SectionLabel, PrimaryButton } from "@/components/ui";
 import { ebooks, equipment } from "@/lib/data";
 import { waLink } from "@/lib/config";
 import type { Metadata } from "next";
@@ -21,7 +21,7 @@ export default function ShopPage() {
       {/* EBOOKS */}
       <section id="ebooks" className="scroll-mt-24 border-b border-steel-line py-20 md:py-24">
         <div className="container-x">
-          <SectionLabel>Ebooks · delivered via Gumroad</SectionLabel>
+          <SectionLabel>Ebooks Â· delivered via Gumroad</SectionLabel>
           <h2 className="text-display mt-4 text-4xl md:text-6xl">
             Programs you keep.
           </h2>
@@ -59,13 +59,13 @@ export default function ShopPage() {
                     <span className="text-mono-label text-sm text-green">
                       {e.price}
                     </span>
-                    
+                    <a
                       href={e.gumroadUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-mono-label border-2 border-ink px-4 py-2.5 text-xs transition-colors hover:border-green hover:text-green"
                     >
-                      Buy on Gumroad ↗
+                      {"Buy on Gumroad ->"}
                     </a>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ export default function ShopPage() {
       {/* EQUIPMENT */}
       <section id="equipment" className="scroll-mt-24 bg-paper-dim py-20 md:py-24">
         <div className="container-x">
-          <SectionLabel>Equipment · order via WhatsApp</SectionLabel>
+          <SectionLabel>Equipment Â· order via WhatsApp</SectionLabel>
           <h2 className="text-display mt-4 text-4xl md:text-6xl">
             Kit for home training.
           </h2>
@@ -110,7 +110,7 @@ export default function ShopPage() {
                     rel="noopener noreferrer"
                     className="text-mono-label text-xs text-green hover:underline"
                   >
-                    Order ↗
+                    {"Order ->"}
                   </a>
                 </div>
               </div>

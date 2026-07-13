@@ -1,4 +1,4 @@
-export type Program = {
+﻿export type Program = {
   slug: string;
   set: string;
   title: string;
@@ -25,7 +25,7 @@ export const programs: Program[] = [
     title: "Women's Strength & Toning",
     audience: "Women",
     summary:
-      "Full-body resistance training designed around real schedules — builds strength without a bulky, generic template.",
+      "Full-body resistance training designed around real schedules  -  builds strength without a bulky, generic template.",
     focus: ["Glute & posterior chain", "Core stability", "Progressive overload"],
     duration: "8-week cycles",
   },
@@ -43,7 +43,7 @@ export const programs: Program[] = [
     slug: "youth-athletic",
     set: "SET 04",
     title: "Youth Athletic Development",
-    audience: "Ages 13–18",
+    audience: "Ages 13-18",
     summary:
       "Bodyweight-first strength and speed mechanics for teens preparing for school sport or club trials.",
     focus: ["Movement fundamentals", "Speed & agility", "Injury-proofing"],
@@ -53,9 +53,9 @@ export const programs: Program[] = [
     slug: "kids-active",
     set: "SET 05",
     title: "Active Kids",
-    audience: "Ages 6–12",
+    audience: "Ages 6-12",
     summary:
-      "Games-based coordination and confidence building. No barbells — just movement literacy, done playfully.",
+      "Games-based coordination and confidence building. No barbells  -  just movement literacy, done playfully.",
     focus: ["Coordination games", "Balance & agility", "Team play"],
     duration: "Ongoing, Sat sessions",
   },
@@ -117,7 +117,7 @@ export const videos: Video[] = [
     category: "Children",
     length: "12:30",
     level: "Beginner",
-    description: "A living-room-safe obstacle circuit for ages 6–12.",
+    description: "A living-room-safe obstacle circuit for ages 6-12.",
   },
 ];
 
@@ -128,6 +128,7 @@ export type Ebook = {
   format: string;
   description: string;
   gumroadUrl: string;
+  cover?: string;
 };
 
 export const ebooks: Ebook[] = [
@@ -135,7 +136,7 @@ export const ebooks: Ebook[] = [
     slug: "strength-blueprint",
     title: "The Strength Blueprint",
     price: "KES 1,500",
-    format: "PDF · 62 pages",
+    format: "PDF - 62 pages",
     description:
       "A 12-week periodised strength program with printable logging sheets and warm-up protocols.",
     gumroadUrl: "https://gumroad.com/l/strength-blueprint",
@@ -144,7 +145,7 @@ export const ebooks: Ebook[] = [
     slug: "90-day-weight-loss-kit",
     title: "90-Day Weight Loss Transformation Kit",
     price: "$15",
-    format: "PDF · Instant download",
+    format: "PDF - Instant download",
     description:
       "A structured 90-day weight-loss program with step-by-step workouts, nutrition guidance, and printable trackers to stay consistent.",
     gumroadUrl: "https://3593509157637.gumroad.com/l/phvdq",
@@ -154,7 +155,7 @@ export const ebooks: Ebook[] = [
     slug: "home-workout-toolkit",
     title: "The No-Gym Home Workout Toolkit",
     price: "KES 900",
-    format: "PDF · 34 pages",
+    format: "PDF - 34 pages",
     description:
       "40 bodyweight and resistance-band sessions for training in small spaces, zero equipment required.",
     gumroadUrl: "https://gumroad.com/l/home-workout-toolkit",
@@ -163,20 +164,19 @@ export const ebooks: Ebook[] = [
     slug: "family-fitness-guide",
     title: "The Family Fitness Guide",
     price: "KES 1,000",
-    format: "PDF · 40 pages",
+    format: "PDF - 40 pages",
     description:
-      "Games and drills parents can run with kids aged 6–14, built for weekend and after-school use.",
+      "Games and drills parents can run with kids aged 6-14, built for weekend and after-school use.",
     gumroadUrl: "https://gumroad.com/l/family-fitness-guide",
   },
 ];
-export type Ebook = {
+
+export type EquipmentItem = {
   slug: string;
   title: string;
   price: string;
-  format: string;
   description: string;
-  gumroadUrl: string;
-  cover?: string;
+  category: string;
 };
 
 export const equipment: EquipmentItem[] = [
@@ -189,7 +189,7 @@ export const equipment: EquipmentItem[] = [
   },
   {
     slug: "adjustable-dumbbells",
-    title: "Adjustable Dumbbell Pair (2–20kg)",
+    title: "Adjustable Dumbbell Pair (2-20kg)",
     price: "KES 14,500",
     description: "Space-saving dumbbells that scale as your strength grows.",
     category: "Weights",
@@ -219,7 +219,7 @@ export const equipment: EquipmentItem[] = [
     slug: "agility-ladder",
     title: "Agility Ladder + Cones",
     price: "KES 3,500",
-    description: "Footwork ladder and 6 cones — built for the teen speed program.",
+    description: "Footwork ladder and 6 cones  -  built for the teen speed program.",
     category: "Youth",
   },
 ];
