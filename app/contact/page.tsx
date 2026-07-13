@@ -64,6 +64,12 @@ export default function ContactPage() {
                 <a href={siteConfig.youtube} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
                   YouTube
                 </a>
+                <a href={siteConfig.facebook} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
+                  Facebook
+                </a>
+                <a href={siteConfig.x} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
+                  X
+                </a>
               </div>
             </div>
           </div>

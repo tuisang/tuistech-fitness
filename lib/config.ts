@@ -6,6 +6,8 @@ export const siteConfig = {
   instagram: "https://instagram.com/tuistechfitness",
   tiktok: "https://tiktok.com/@tuistechfitness",
   youtube: "https://youtube.com/@tuistechfitness",
+  facebook: "https://facebook.com/tuistechfitness",
+  x: "https://x.com/tuistechfitness",
   bookingUrl: "", // e.g. a Calendly / cal.com link
 };
 
