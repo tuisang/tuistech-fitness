@@ -1,5 +1,6 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendBookingNotification } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -37,6 +38,17 @@ export async function POST(request: Request) {
           typeof notes === "string" && notes ? notes.slice(0, 2000) : null,
       },
     });
+
+    // Fire-and-forget: don't let a slow/failed email delay or break the
+    // booking response, since the booking is already safely saved.
+    sendBookingNotification({
+      name: booking.name,
+      phone: booking.phone,
+      program: booking.program,
+      preferredDate: booking.preferredDate,
+      preferredTime: booking.preferredTime,
+      notes: booking.notes,
+    }).catch((err) => console.error("Booking notification error:", err));
 
     return NextResponse.json({ ok: true, id: booking.id });
   } catch (error) {
