@@ -1,6 +1,13 @@
-import { PageHero, SectionLabel } from "@/components/ui";
+﻿import { PageHero, SectionLabel } from "@/components/ui";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig, waLink } from "@/lib/config";
+import {
+  InstagramIcon,
+  TikTokIcon,
+  YouTubeIcon,
+  FacebookIcon,
+  XIcon,
+} from "@/components/icons/SocialIcons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +21,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Get in touch."
-        description="Questions about programs, equipment, or partnering with a school or team — reach out and we'll respond within a day."
+        description="Questions about programs, equipment, or partnering with a school or team - reach out and we'll respond within a day."
       />
 
       <section className="py-20 md:py-24">
@@ -28,12 +35,7 @@ export default function ContactPage() {
                 <span className="text-mono-label text-xs text-steel">
                   WhatsApp
                 </span>
-                <a
-                  href={waLink("Hi! I have a question about Tuistech Fitness.")}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-1 block text-lg font-semibold hover:text-green"
-                >
+                <a href={waLink("Hi! I have a question about Tuistech Fitness.")} target="_blank" rel="noopener noreferrer" className="mt-1 block text-lg font-semibold hover:text-green">
                   {siteConfig.phone}
                 </a>
               </div>
@@ -41,10 +43,7 @@ export default function ContactPage() {
                 <span className="text-mono-label text-xs text-steel">
                   Email
                 </span>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="mt-1 block text-lg font-semibold hover:text-green"
-                >
+                <a href={`mailto:${siteConfig.email}`} className="mt-1 block text-lg font-semibold hover:text-green">
                   {siteConfig.email}
                 </a>
               </div>
@@ -54,22 +53,32 @@ export default function ContactPage() {
                 </span>
                 <p className="mt-1 text-lg font-semibold">Nairobi, Kenya</p>
               </div>
-              <div className="flex gap-5 pt-2">
-                <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
-                  Instagram
-                </a>
-                <a href={siteConfig.tiktok} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
-                  TikTok
-                </a>
-                <a href={siteConfig.youtube} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
-                  YouTube
-                </a>
-                <a href={siteConfig.facebook} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
-                  Facebook
-                </a>
-                <a href={siteConfig.x} target="_blank" rel="noopener noreferrer" className="text-mono-label text-xs text-ink/60 hover:text-green">
-                  X
-                </a>
+              <div className="flex gap-4 pt-2">
+                {siteConfig.instagram && (
+                  <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-ink/50 transition-colors hover:text-green">
+                    <InstagramIcon className="h-5 w-5" />
+                  </a>
+                )}
+                {siteConfig.tiktok && (
+                  <a href={siteConfig.tiktok} target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-ink/50 transition-colors hover:text-green">
+                    <TikTokIcon className="h-5 w-5" />
+                  </a>
+                )}
+                {siteConfig.youtube && (
+                  <a href={siteConfig.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="text-ink/50 transition-colors hover:text-green">
+                    <YouTubeIcon className="h-5 w-5" />
+                  </a>
+                )}
+                {siteConfig.facebook && (
+                  <a href={siteConfig.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="text-ink/50 transition-colors hover:text-green">
+                    <FacebookIcon className="h-5 w-5" />
+                  </a>
+                )}
+                {siteConfig.x && (
+                  <a href={siteConfig.x} target="_blank" rel="noopener noreferrer" aria-label="X" className="text-ink/50 transition-colors hover:text-green">
+                    <XIcon className="h-5 w-5" />
+                  </a>
+                )}
               </div>
             </div>
           </div>

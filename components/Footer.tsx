@@ -1,5 +1,21 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Logo from "@/components/Logo";
+import { siteConfig } from "@/lib/config";
+import {
+  InstagramIcon,
+  TikTokIcon,
+  YouTubeIcon,
+  FacebookIcon,
+  XIcon,
+} from "@/components/icons/SocialIcons";
+
+const socialLinks = [
+  { href: siteConfig.instagram, label: "Instagram", Icon: InstagramIcon },
+  { href: siteConfig.tiktok, label: "TikTok", Icon: TikTokIcon },
+  { href: siteConfig.youtube, label: "YouTube", Icon: YouTubeIcon },
+  { href: siteConfig.facebook, label: "Facebook", Icon: FacebookIcon },
+  { href: siteConfig.x, label: "X", Icon: XIcon },
+].filter((s) => s.href);
 
 export default function Footer() {
   return (
@@ -40,8 +56,17 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-x flex flex-col gap-3 border-t border-paper/10 py-6 text-xs text-paper/40 md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} Tuistech Fitness. All rights reserved.</p>
+      <div className="container-x flex flex-col gap-5 border-t border-paper/10 py-6 text-xs text-paper/40 md:flex-row md:items-center md:justify-between">
+        <p>(c) {new Date().getFullYear()} Tuistech Fitness. All rights reserved.</p>
+        {socialLinks.length > 0 && (
+          <div className="flex items-center gap-4">
+            {socialLinks.map(({ href, label, Icon }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="text-paper/50 transition-colors hover:text-green">
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
+          </div>
+        )}
         <p>Programs are informational and not a substitute for medical advice.</p>
       </div>
     </footer>
