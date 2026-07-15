@@ -133,13 +133,14 @@ export type Ebook = {
 
 export const ebooks: Ebook[] = [
   {
-    slug: "strength-blueprint",
-    title: "The Strength Blueprint",
-    price: "KES 1,500",
-    format: "PDF - 62 pages",
+    slug: "muscle-building-blueprint",
+    title: "The Ultimate Muscle Building Blueprint",
+    price: "$9.99",
+    format: "PDF - 132 pages",
     description:
-      "A 12-week periodised strength program with printable logging sheets and warm-up protocols.",
-    gumroadUrl: "https://gumroad.com/l/strength-blueprint",
+      "A complete muscle-building program covering training principles, nutrition strategy, and recovery, with a 12-week planner and printable progress trackers included.",
+    gumroadUrl: "https://3593509157637.gumroad.com/l/uwzrtn",
+    cover: "/images/ebooks/muscle-building-blueprint.jpg",
   },
   {
     slug: "90-day-weight-loss-kit",
