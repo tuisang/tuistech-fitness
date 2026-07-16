@@ -19,13 +19,15 @@ function formatDate(date: Date) {
 }
 
 export default async function AdminPage() {
-  const [bookings, messages] = await Promise.all([
+  const [bookings, messages, ebookOrders] = await Promise.all([
     prisma.bookingRequest.findMany({ orderBy: { createdAt: "desc" } }),
     prisma.contactMessage.findMany({ orderBy: { createdAt: "desc" } }),
+    prisma.ebookOrder.findMany({ orderBy: { createdAt: "desc" }, take: 100 }),
   ]);
 
   const newBookings = bookings.filter((b) => b.status === "NEW").length;
   const newMessages = messages.filter((m) => m.status === "NEW").length;
+  const paidOrders = ebookOrders.filter((o) => o.status === "PAID").length;
 
   return (
     <div className="min-h-screen bg-paper-dim">
@@ -42,7 +44,7 @@ export default async function AdminPage() {
       </header>
 
       <div className="container-x py-12">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-3">
           <div className="border-2 border-ink bg-paper p-6">
             <span className="text-mono-label text-xs text-steel">
               New booking requests
@@ -54,6 +56,12 @@ export default async function AdminPage() {
               New contact messages
             </span>
             <p className="text-display mt-2 text-4xl">{newMessages}</p>
+          </div>
+          <div className="border-2 border-ink bg-paper p-6">
+            <span className="text-mono-label text-xs text-steel">
+              Paid ebook orders
+            </span>
+            <p className="text-display mt-2 text-4xl">{paidOrders}</p>
           </div>
         </div>
 
@@ -81,21 +89,16 @@ export default async function AdminPage() {
                     </td>
                     <td className="px-4 py-3 font-medium">{b.name}</td>
                     <td className="px-4 py-3">
-                      <a
-                        href={`https://wa.me/${b.phone.replace(/\D/g, "")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-dim hover:underline"
-                      >
+                      <a href={`https://wa.me/${b.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-green-dim hover:underline">
                         {b.phone}
                       </a>
                     </td>
                     <td className="px-4 py-3">{b.program}</td>
                     <td className="px-4 py-3 text-xs text-ink/60">
-                      {[b.preferredDate, b.preferredTime].filter(Boolean).join(" · ") || "—"}
+                      {[b.preferredDate, b.preferredTime].filter(Boolean).join(" - ") || "-"}
                     </td>
                     <td className="max-w-xs px-4 py-3 text-xs text-ink/60">
-                      {b.notes || "—"}
+                      {b.notes || "-"}
                     </td>
                     <td className="px-4 py-3">
                       <StatusSelect
@@ -160,6 +163,70 @@ export default async function AdminPage() {
                   <tr>
                     <td colSpan={5} className="px-4 py-8 text-center text-sm text-ink/40">
                       No contact messages yet.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </section>
+        {/* EBOOK ORDERS */}
+        <section className="mt-14">
+          <h2 className="text-display text-2xl">Ebook orders (M-Pesa)</h2>
+          <div className="mt-5 overflow-x-auto border border-steel-line bg-paper">
+            <table className="w-full min-w-[720px] text-left text-sm">
+              <thead>
+                <tr className="text-mono-label border-b border-steel-line text-[11px] text-steel">
+                  <th className="px-4 py-3">Received</th>
+                  <th className="px-4 py-3">Ebook</th>
+                  <th className="px-4 py-3">Phone</th>
+                  <th className="px-4 py-3">Email</th>
+                  <th className="px-4 py-3">Amount</th>
+                  <th className="px-4 py-3">Receipt</th>
+                  <th className="px-4 py-3">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {ebookOrders.map((o) => (
+                  <tr key={o.id} className="border-b border-steel-line/60 align-top last:border-b-0">
+                    <td className="whitespace-nowrap px-4 py-3 text-xs text-ink/60">
+                      {formatDate(o.createdAt)}
+                    </td>
+                    <td className="px-4 py-3 font-medium">{o.ebookTitle}</td>
+                    <td className="px-4 py-3">
+                      <a href={`https://wa.me/${o.phone.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-green-dim hover:underline">
+                        {o.phone}
+                      </a>
+                    </td>
+                    <td className="px-4 py-3">
+                      <a href={`mailto:${o.email}`} className="text-green-dim hover:underline">
+                        {o.email}
+                      </a>
+                    </td>
+                    <td className="px-4 py-3 text-xs">KES {o.amountKes.toLocaleString()}</td>
+                    <td className="px-4 py-3 text-xs text-ink/60">
+                      {o.mpesaReceiptNumber || "-"}
+                    </td>
+                    <td className="px-4 py-3">
+                      <span
+                        className={`text-mono-label border px-2 py-1 text-[11px] ${
+                          o.status === "PAID"
+                            ? "border-green text-green-dim"
+                            : o.status === "FAILED" || o.status === "CANCELLED"
+                              ? "border-steel-line text-ink/40"
+                              : "border-steel-line text-steel"
+                        }`}
+                      >
+                        {o.status}
+                        {o.status === "PAID" && !o.deliveredAt && " (not delivered)"}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+                {ebookOrders.length === 0 && (
+                  <tr>
+                    <td colSpan={7} className="px-4 py-8 text-center text-sm text-ink/40">
+                      No ebook orders yet.
                     </td>
                   </tr>
                 )}

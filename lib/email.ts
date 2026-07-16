@@ -1,4 +1,6 @@
-﻿import nodemailer from "nodemailer";
+import nodemailer from "nodemailer";
+import fs from "fs";
+import path from "path";
 
 // Uses Zoho Mail SMTP, matching the setup used across other Tuistech
 // projects. All values are read from environment variables so nothing
@@ -89,4 +91,47 @@ export async function sendContactNotification(message: {
     ``,
     `View and manage this message at /admin.`,
   ]);
+}
+
+// PDFs live outside the `public/` folder (in `private/ebooks/`) so they
+// can never be downloaded directly by URL - only this server-side code
+// can read them, and only after a payment is confirmed.
+export async function sendEbookDelivery({
+  email,
+  ebookSlug,
+  ebookTitle,
+}: {
+  email: string;
+  ebookSlug: string;
+  ebookTitle: string;
+}) {
+  const transporter = getTransporter();
+
+  if (!transporter) {
+    throw new Error(
+      "Cannot deliver ebook - email is not configured (SMTP_* env vars missing)."
+    );
+  }
+
+  const pdfPath = path.join(process.cwd(), "private", "ebooks", `${ebookSlug}.pdf`);
+
+  if (!fs.existsSync(pdfPath)) {
+    throw new Error(
+      `Cannot deliver ebook - PDF file not found at private/ebooks/${ebookSlug}.pdf`
+    );
+  }
+
+  await transporter.sendMail({
+    from: `"Tuistech Fitness" <${process.env.SMTP_USER}>`,
+    to: email,
+    subject: `Your download: ${ebookTitle}`,
+    text: `Thanks for your purchase! Your copy of "${ebookTitle}" is attached to this email.\n\nIf you have any trouble opening it, reply to this email and we'll help.\n\n- Tuistech Fitness`,
+    html: `<p style="font-family:sans-serif;font-size:14px;">Thanks for your purchase! Your copy of <strong>${ebookTitle}</strong> is attached to this email.</p><p style="font-family:sans-serif;font-size:14px;">If you have any trouble opening it, reply to this email and we'll help.</p><p style="font-family:sans-serif;font-size:14px;">- Tuistech Fitness</p>`,
+    attachments: [
+      {
+        filename: `${ebookTitle}.pdf`,
+        path: pdfPath,
+      },
+    ],
+  });
 }

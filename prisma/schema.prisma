@@ -19,6 +19,33 @@ enum MessageStatus {
   REPLIED
 }
 
+enum EbookOrderStatus {
+  PENDING
+  PAID
+  FAILED
+  CANCELLED
+}
+
+model EbookOrder {
+  id                String           @id @default(cuid())
+  ebookSlug         String
+  ebookTitle        String
+  phone             String
+  email             String
+  amountKes         Int
+  checkoutRequestId String?          @unique
+  merchantRequestId String?
+  mpesaReceiptNumber String?
+  status            EbookOrderStatus @default(PENDING)
+  deliveredAt       DateTime?
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([checkoutRequestId])
+}
+
 model BookingRequest {
   id            String        @id @default(cuid())
   name          String

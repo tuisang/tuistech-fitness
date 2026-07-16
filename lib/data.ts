@@ -1,4 +1,4 @@
-﻿export type Program = {
+export type Program = {
   slug: string;
   set: string;
   title: string;
@@ -129,6 +129,7 @@ export type Ebook = {
   description: string;
   gumroadUrl: string;
   cover?: string;
+  priceKes?: number; // set this to show a "Pay with M-Pesa" option
 };
 
 export const ebooks: Ebook[] = [
@@ -141,6 +142,7 @@ export const ebooks: Ebook[] = [
       "A complete muscle-building program covering training principles, nutrition strategy, and recovery, with a 12-week planner and printable progress trackers included.",
     gumroadUrl: "https://3593509157637.gumroad.com/l/uwzrtn",
     cover: "/images/ebooks/muscle-building-blueprint.jpg",
+    priceKes: 1300,
   },
   {
     slug: "90-day-weight-loss-kit",
@@ -151,6 +153,7 @@ export const ebooks: Ebook[] = [
       "A structured 90-day weight-loss program with step-by-step workouts, nutrition guidance, and printable trackers to stay consistent.",
     gumroadUrl: "https://3593509157637.gumroad.com/l/phvdq",
     cover: "/images/ebooks/90-day-weight-loss-kit.jpg",
+    priceKes: 2000,
   },
   {
     slug: "home-workout-toolkit",
