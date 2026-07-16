@@ -1,4 +1,4 @@
-export type Program = {
+﻿export type Program = {
   slug: string;
   set: string;
   title: string;
@@ -153,7 +153,7 @@ export const ebooks: Ebook[] = [
       "A structured 90-day weight-loss program with step-by-step workouts, nutrition guidance, and printable trackers to stay consistent.",
     gumroadUrl: "https://3593509157637.gumroad.com/l/phvdq",
     cover: "/images/ebooks/90-day-weight-loss-kit.jpg",
-    priceKes: 2000,
+    priceKes: 1,
   },
   {
     slug: "home-workout-toolkit",
