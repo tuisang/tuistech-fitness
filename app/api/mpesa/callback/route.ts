@@ -18,6 +18,9 @@ export async function POST(request: Request) {
 
     const checkoutRequestId = stkCallback.CheckoutRequestID as string;
     const resultCode = stkCallback.ResultCode as number;
+    const resultDesc = stkCallback.ResultDesc as string;
+
+    console.log("M-Pesa callback result:", { checkoutRequestId, resultCode, resultDesc });
 
     const order = await prisma.ebookOrder.findUnique({
       where: { checkoutRequestId },
@@ -29,6 +32,7 @@ export async function POST(request: Request) {
     }
 
     if (resultCode !== 0) {
+      console.log(`Order ${order.id} failed: ${resultDesc}`);
       await prisma.ebookOrder.update({
         where: { id: order.id },
         data: { status: "FAILED" },
