@@ -156,22 +156,26 @@ export const ebooks: Ebook[] = [
     priceKes: 2000,
   },
   {
-    slug: "home-workout-toolkit",
-    title: "The No-Gym Home Workout Toolkit",
-    price: "KES 900",
-    format: "PDF - 34 pages",
+    slug: "home-workout-blueprint",
+    title: "The Ultimate Home Workout Blueprint",
+    price: "$9.99",
+    format: "PDF - 150+ pages",
     description:
-      "40 bodyweight and resistance-band sessions for training in small spaces, zero equipment required.",
-    gumroadUrl: "https://gumroad.com/l/home-workout-toolkit",
+      "A complete 90-day home workout program covering bodyweight and resistance-band training, cardio, mobility, and recovery, with printable planners and trackers included.",
+    gumroadUrl: "https://3593509157637.gumroad.com/l/ocmtqj",
+    cover: "/images/ebooks/home-workout-blueprint.jpg",
+    priceKes: 1300,
   },
   {
-    slug: "family-fitness-guide",
-    title: "The Family Fitness Guide",
-    price: "KES 1,000",
-    format: "PDF - 40 pages",
+    slug: "healthy-meal-planning-blueprint",
+    title: "The Ultimate Healthy Meal Planning Blueprint",
+    price: "$9.99",
+    format: "PDF - 135+ pages",
     description:
-      "Games and drills parents can run with kids aged 6-14, built for weekend and after-school use.",
-    gumroadUrl: "https://gumroad.com/l/family-fitness-guide",
+      "A practical guide to planning balanced meals, understanding portion sizes, and building sustainable healthy eating habits, with printable meal planners and trackers included.",
+    gumroadUrl: "https://3593509157637.gumroad.com/l/avrgdu",
+    cover: "/images/ebooks/healthy-meal-planning-blueprint.jpg",
+    priceKes: 1300,
   },
 ];
 
