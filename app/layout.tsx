@@ -3,6 +3,7 @@ import { Anton, Work_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Chatbot from "@/components/Chatbot";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -26,7 +27,7 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tuistech Fitness & Wellness | Strength, Weight Loss & Coaching — Nairobi",
+  title: "Tuistech Fitness & Wellness | Strength, Weight Loss & Coaching - Nairobi",
   description:
     "Coached strength training, weight-loss programs and family fitness in Nairobi. Follow-along video workouts, downloadable training guides, 1:1 consulting, and equipment for home training.",
   keywords: [
@@ -49,6 +50,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <Chatbot />
       </body>
     </html>
   );
