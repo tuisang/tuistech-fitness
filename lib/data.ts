@@ -177,6 +177,17 @@ export const ebooks: Ebook[] = [
     cover: "/images/ebooks/healthy-meal-planning-blueprint.jpg",
     priceKes: 1300,
   },
+  {
+    slug: "basketball-conditioning-blueprint",
+    title: "The Ultimate Basketball Conditioning Blueprint",
+    price: "$9.99",
+    format: "PDF - 126 pages",
+    description:
+      "A 90-day basketball-specific conditioning program covering strength, speed, vertical jump, endurance, and injury prevention, with printable training planners and trackers included.",
+    gumroadUrl: "https://3593509157637.gumroad.com/l/dxbbx",
+    cover: "/images/ebooks/basketball-conditioning-blueprint.jpg",
+    priceKes: 1300,
+  },
 ];
 
 export type EquipmentItem = {
