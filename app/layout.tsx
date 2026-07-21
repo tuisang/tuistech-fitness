@@ -27,7 +27,11 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Tuistech Fitness & Wellness | Strength, Weight Loss & Coaching - Nairobi",
+  metadataBase: new URL("https://fitness.tuistech.co.ke"),
+  title: {
+    default: "Tuistech Fitness & Wellness | Strength, Weight Loss & Coaching - Nairobi",
+    template: "%s | Tuistech Fitness & Wellness",
+  },
   description:
     "Coached strength training, weight-loss programs and family fitness in Nairobi. Follow-along video workouts, downloadable training guides, 1:1 consulting, and equipment for home training.",
   keywords: [
@@ -37,6 +41,46 @@ export const metadata: Metadata = {
     "strength training",
     "kids fitness Nairobi",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Tuistech Fitness & Wellness | Strength, Weight Loss & Coaching - Nairobi",
+    description:
+      "Coached strength training, weight-loss programs and family fitness in Nairobi. Follow-along video workouts, downloadable training guides, 1:1 consulting, and equipment for home training.",
+    url: "https://fitness.tuistech.co.ke",
+    siteName: "Tuistech Fitness & Wellness",
+    locale: "en_KE",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tuistech Fitness & Wellness | Strength, Weight Loss & Coaching - Nairobi",
+    description:
+      "Coached strength training, weight-loss programs and family fitness in Nairobi.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ExerciseGym",
+  name: "Tuistech Fitness & Wellness",
+  description:
+    "Coached strength training, weight-loss programs, youth athletics, and children's fitness in Nairobi, Kenya.",
+  url: "https://fitness.tuistech.co.ke",
+  telephone: "+254726461196",
+  email: "fitness@tuistech.co.ke",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Nairobi",
+    addressCountry: "KE",
+  },
+  areaServed: "Nairobi, Kenya",
+  priceRange: "KES 900 - KES 14,500",
 };
 
 export default function RootLayout({
@@ -47,6 +91,10 @@ export default function RootLayout({
       <body
         className={`${anton.variable} ${workSans.variable} ${jbMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
         <Header />
         <main>{children}</main>
         <Footer />
