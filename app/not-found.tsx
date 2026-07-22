@@ -22,7 +22,9 @@ export default function NotFound() {
         </p>
         <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <PrimaryButton href="/">Back to home</PrimaryButton>
-          <SecondaryButton href="/contact">Contact us</SecondaryButton>
+          <SecondaryButton href="/contact" variant="dark">
+            Contact us
+          </SecondaryButton>
         </div>
       </div>
     </section>

@@ -23,7 +23,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <PrimaryButton href="/consulting">Book a consult</PrimaryButton>
-              <SecondaryButton href="/programs">
+              <SecondaryButton href="/programs" variant="dark">
                 Explore programs
               </SecondaryButton>
             </div>

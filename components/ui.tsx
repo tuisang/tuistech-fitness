@@ -38,15 +38,18 @@ export function PrimaryButton({
 export function SecondaryButton({
   href,
   children,
+  variant = "light",
 }: {
   href: string;
   children: ReactNode;
+  variant?: "light" | "dark";
 }) {
+  const cls =
+    variant === "dark"
+      ? "text-mono-label inline-block border-2 border-paper/40 px-6 py-3.5 text-xs text-paper transition-colors hover:border-green hover:text-green text-center"
+      : "text-mono-label inline-block border-2 border-ink px-6 py-3.5 text-xs text-ink transition-colors hover:border-green hover:text-green text-center";
   return (
-    <Link
-      href={href}
-      className="text-mono-label inline-block border-2 border-ink px-6 py-3.5 text-xs text-ink transition-colors hover:border-green hover:text-green text-center"
-    >
+    <Link href={href} className={cls}>
       {children}
     </Link>
   );
