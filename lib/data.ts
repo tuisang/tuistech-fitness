@@ -196,7 +196,7 @@ export const ebooks: Ebook[] = [
     description:
       "A complete step-by-step guide to learning to swim and mastering every stroke, covering water safety, breathing, body position, and all four competitive strokes, with a 90-day swimming improvement program and printable planners and trackers.",
     gumroadUrl: "https://3593509157637.gumroad.com/l/ldnpn",
-    cover: "/images/ebooks/swimming-blueprint.jpg",
+    cover: "/images/ebooks/swimming-blueprint.png",
     priceKes: 1300,
   },
 ];
