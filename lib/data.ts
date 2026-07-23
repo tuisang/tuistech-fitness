@@ -1,4 +1,4 @@
-﻿export type Program = {
+export type Program = {
   slug: string;
   set: string;
   title: string;
@@ -186,6 +186,17 @@ export const ebooks: Ebook[] = [
       "A 90-day basketball-specific conditioning program covering strength, speed, vertical jump, endurance, and injury prevention, with printable training planners and trackers included.",
     gumroadUrl: "https://3593509157637.gumroad.com/l/dxbbx",
     cover: "/images/ebooks/basketball-conditioning-blueprint.jpg",
+    priceKes: 1300,
+  },
+  {
+    slug: "swimming-blueprint",
+    title: "The Ultimate Swimming Blueprint",
+    price: "$9.99",
+    format: "PDF - 136 pages",
+    description:
+      "A complete step-by-step guide to learning to swim and mastering every stroke, covering water safety, breathing, body position, and all four competitive strokes, with a 90-day swimming improvement program and printable planners and trackers.",
+    gumroadUrl: "https://3593509157637.gumroad.com/l/ldnpn",
+    
     priceKes: 1300,
   },
 ];
